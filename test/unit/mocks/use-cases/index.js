@@ -71,6 +71,9 @@ class Offer {
   async acceptCounterOffer() {
     return {}
   }
+  async syncOfferMutableData(){
+    return {}
+  }
 }
 
 class Order {
@@ -132,6 +135,27 @@ class SmAccountUseCaseMock {
   }
 }
 
+class NostrUseCasesMock {
+  async createDeletedChat() {
+    return {}
+  }
+  async getDeletedChats() {
+    return []
+  }
+  async createDeletedPost() {
+    return {}
+  }
+  async getDeletedPosts() {
+    return []
+  }
+  async removeOlderDeletedChats() {
+    return true
+  }
+  async removeOlderDeletedPosts() {
+    return true
+  }
+}
+
 class UseCasesMock {
   constuctor(localConfig = {}) {
     // this.user = new UserUseCaseMock(localConfig)
@@ -143,6 +167,7 @@ class UseCasesMock {
   order = new Order()
   usage = new UsageUseCaseMock()
   smAccount = new SmAccountUseCaseMock()
+  nostr = new NostrUseCasesMock()
 }
 
 export default UseCasesMock;
